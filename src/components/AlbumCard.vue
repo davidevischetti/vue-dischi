@@ -1,7 +1,7 @@
 <template>
     <div>
-        <img :src="img" :alt="albumName">
-        <h3>{{albumName}}</h3>
+        <img :src="img" :alt="albumName +'-logo'">
+        <h3>{{albumName.toUpperCase()}}</h3>
         <span>{{text}}</span>
         <span>{{date}}</span>
     </div>
@@ -46,5 +46,7 @@ export default {
             color: #666;      
         }
     }
+
+    @import '../assets/style/AlbumCardMedias.scss'
 
 </style>

@@ -1,0 +1,23 @@
+@media screen and (max-width: 1220px) { 
+    div {
+        flex-basis: calc((100% - (20px * 8)) / 4); 
+    }
+}
+
+@media screen and (max-width: 932px) { 
+    div {
+        flex-basis: calc((100% - (20px * 6)) / 3); 
+    }
+}
+
+@media screen and (max-width: 752px) { 
+    div {
+        flex-basis: calc((100% - (20px * 4)) / 2); 
+    }
+}
+
+@media screen and (max-width: 470px) { 
+    div {
+        flex-basis: calc((100% - (20px * 2)) / 1); 
+    }
+}
