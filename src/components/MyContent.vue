@@ -28,6 +28,7 @@ export default {
         axios.get(this.apiSpotify)
             .then((result) => {
             this.albumList = result.data.response;
+            this.albumList[0].poster = 'https://www.vinileria.it/wp-content/uploads/2022/04/R-865216-1338266621-3764.jpg';
             console.log(this.albumList);
         })
             .catch((error) => {
