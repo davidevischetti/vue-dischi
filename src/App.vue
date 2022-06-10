@@ -27,6 +27,7 @@ export default {
 }
 
 #app {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
  width: 100%;
  height: 100vh;
 }

@@ -15,13 +15,17 @@ export default {
 <!-- CSS -->
 <style scoped lang="scss">
 
-header {
-  height: 8vh;
-  background-color: #2e3a46;
+  header {
+    height: 50px;
+    width: 100%;
+    background-color: #2e3a46;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-  img {
-    height: 100%;
+    img {
+      height: 100%;
+    }
   }
-}
 
 </style>
