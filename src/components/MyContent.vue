@@ -1,7 +1,6 @@
 <template>
   <main>
-    <MyFilters @filter="selectNewGenre"/>
-    {{choseGenre}}
+    <MyFilters @filter="genreFilter"/>
     <div id="content-container">
       <AlbumCard
       v-for="(album, i) in albumList" :key="i" 
@@ -32,6 +31,18 @@ export default {
       selectNewGenre (checkGenre) {
         this.choseGenre = checkGenre;
         console.log(this.checkGenre);
+      }
+    },
+    computed : {
+      genreFilter () {
+        if (this.choseGenre == 'all') {
+          return this.albumList
+        } else {
+          console.log('wewe');
+            return this.albumList.filter(item => {
+              return item.genre = this.choseGenre;
+          });
+        }
       }
     },
     created() {
