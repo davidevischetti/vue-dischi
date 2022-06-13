@@ -1,5 +1,7 @@
 <template>
   <main>
+    <MyFilters @filter="selectNewGenre"/>
+    {{choseGenre}}
     <div id="content-container">
       <AlbumCard
       v-for="(album, i) in albumList" :key="i" 
@@ -15,27 +17,38 @@
 <script>
 import axios from 'axios'
 import AlbumCard from './AlbumCard.vue'
+import MyFilters from './MyFilters.vue';
 
 export default {
     name: "MyContent",
     data() {
         return {
             apiSpotify: "https://flynn.boolean.careers/exercises/api/array/music",
-            albumList: []
+            albumList: [],
+            choseGenre : '',
         };
+    },
+    methods : {
+      selectNewGenre (checkGenre) {
+        this.choseGenre = checkGenre;
+        console.log(this.checkGenre);
+      }
     },
     created() {
         axios.get(this.apiSpotify)
             .then((result) => {
             this.albumList = result.data.response;
-            // this.albumList[0].poster = 'https://www.vinileria.it/wp-content/uploads/2022/04/R-865216-1338266621-3764.jpg';
-            console.log(this.albumList);
+            this.albumList[0].poster = 'https://www.vinileria.it/wp-content/uploads/2022/04/R-865216-1338266621-3764.jpg';
+            // console.log(this.albumList);
         })
             .catch((error) => {
             console.log("errore", error);
         });
     },
-    components: { AlbumCard }
+    components: {
+       AlbumCard,
+        MyFilters
+    }
 }
 
 </script>
