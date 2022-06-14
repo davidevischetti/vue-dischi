@@ -1,7 +1,7 @@
 <!-- HTML -->
 <template>
-<select name="filter-genre" id="filter-genre" >
-    <option v-for="(newGenre, i) in genreArr" :v-model="newGenre" @click="$emit('filter', newGenre)" :key="i">{{newGenre.toUpperCase()}}</option>
+<select name="filter-genre" id="filter-genre" v-model="varGenre" @change="$emit('filter', varGenre)" >
+    <option v-for="(newGenre, i) in genreArr" :value="newGenre" :key="i">{{newGenre.toUpperCase()}}</option>
 </select>
 </template>
 
@@ -11,11 +11,9 @@ export default {
   name: 'MyFilters',
   data () {
     return {
-        genreArr  : ['all', 'rock', 'metal', 'pop', 'jazz']
+        genreArr  : ['all','rock', 'metal', 'pop', 'jazz'],
+        varGenre : 'all',
     }
-  },
-  created () {
-    console.log(this.newGenre);
   }
 
 }

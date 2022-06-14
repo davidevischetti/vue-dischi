@@ -1,9 +1,9 @@
 <template>
   <main>
-    <MyFilters @filter="genreFilter"/>
+    <MyFilters @filter="selectNewGenre"/>
     <div id="content-container">
       <AlbumCard
-      v-for="(album, i) in albumList" :key="i" 
+      v-for="(album, i) in genreFilter" :key="i" 
       :img="album.poster" 
       :text="album.author" 
       :date="album.year"
@@ -24,23 +24,24 @@ export default {
         return {
             apiSpotify: "https://flynn.boolean.careers/exercises/api/array/music",
             albumList: [],
-            choseGenre : '',
+            choseGenre : ''
         };
     },
     methods : {
       selectNewGenre (checkGenre) {
         this.choseGenre = checkGenre;
-        console.log(this.checkGenre);
+        
       }
     },
     computed : {
-      genreFilter () {
-        if (this.choseGenre == 'all') {
+      genreFilter () {      
+        if (this.choseGenre === 'all') {
+          console.log(this.choseGenre);
           return this.albumList
         } else {
-          console.log('wewe');
             return this.albumList.filter(item => {
-              return item.genre = this.choseGenre;
+              console.log(this.choseGenre);
+                return item.genre.toLowerCase().includes(this.choseGenre.toLowerCase())
           });
         }
       }
